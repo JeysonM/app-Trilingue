@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Palabra nueva</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+      <ion-list-header>
+        <ion-label><h1>Español</h1></ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label position="floating">Palabra</ion-label>
+        <ion-input type="text" name="spanish_word" [(ngModel)]="tripleWord.spanish_word"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ejemplo</ion-label>
+        <ion-textarea name="spanish_example" [(ngModel)]="tripleWord.spanish_example" placeholder="Escriba un ejemplo..." ></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Fonética</ion-label>
+        <ion-input type="text" name="spanish_phonetics" [(ngModel)]="tripleWord.spanish_phonetics"></ion-input>
+      </ion-item><br><br>
+
+      <ion-list-header>
+        <ion-label><h1>Inglés</h1></ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label position="floating">Palabra</ion-label>
+        <ion-input type="text" name="english_word" [(ngModel)]="tripleWord.english_word"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ejemplo</ion-label>
+        <ion-textarea name="english_example" [(ngModel)]="tripleWord.english_example" placeholder="Escriba un ejemplo..." ></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Fonética</ion-label>
+        <ion-input type="text" name="english_phonetics" [(ngModel)]="tripleWord.english_phonetics"></ion-input>
+      </ion-item><br><br>
+
+      <ion-list-header>
+        <ion-label><h1>Quechua</h1></ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label position="floating">Palabra</ion-label>
+        <ion-input type="text" name="quechua_word" [(ngModel)]="tripleWord.quechua_word"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ejemplo</ion-label>
+        <ion-textarea name="quechua_example" [(ngModel)]="tripleWord.quechua_example" placeholder="Escriba un ejemplo..." ></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Fonética</ion-label>
+        <ion-input type="text" name="quechua_phonetics" [(ngModel)]="tripleWord.quechua_phonetics"></ion-input>
+      </ion-item><br><br>
+    </ion-list>
+
+      <ion-button color="primary" expand="block" (click)="onSubmitTripleWord();">Guardar</ion-button>
+
+
+</ion-content>

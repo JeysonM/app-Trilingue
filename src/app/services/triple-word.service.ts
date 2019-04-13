@@ -10,7 +10,7 @@ export class TripleWordService {
   constructor(private firebase: AngularFireDatabase) {}
 
   getTriWords(){
-    return this.tripleWordList = this.firebase.list(`triwords`);
+    return this.tripleWordList = this.firebase.list('triwords');
   }
 
   getTriWord(key: string){
