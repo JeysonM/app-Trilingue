@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TripleWord } from 'src/app/models/triple-word';
 import { TripleWordService } from 'src/app/services/triple-word.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Toast } from '@ionic-native/toast/ngx';
 import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -14,27 +15,58 @@ import { NavController } from '@ionic/angular';
 export class TripleWordsPage implements OnInit {
 
   public tripleWord:TripleWord = new TripleWord();
+  public triWord_id:any;
+  public triWordObservable: Observable<any>;
+
   constructor(public tripleWordService: TripleWordService,
               public router: Router,
               public toast: Toast,
-              public navController: NavController) { }
+              public navController: NavController,
+              public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.triWord_id = this.activatedRoute.snapshot.paramMap.get('id');
     this.tripleWordService.getTriWords();
+
+    if(this.triWord_id){
+      this.triWordObservable = this.tripleWordService.getTriWord(this.triWord_id);
+      this.triWordObservable.subscribe(triWord => {
+         
+          this.tripleWord = triWord;
+          this.tripleWord.$key = this.triWord_id;
+          console.log(this.tripleWord);
+          // this.tripleWord.english_example = triWord.english_example; 
+          // this.tripleWord.english_phonetics = triWord.english_phonetics; 
+          // this.tripleWord.english_phonetics = triWord.english_phonetics; 
+          // this.tripleWord.spanish_word = triWord.spanish_word; 
+          // this.tripleWord.spanish_example = triWord.spanish_example; 
+          // this.tripleWord.spanish_phonetics = triWord.spanish_phonetics; 
+          // this.tripleWord.quechua_word = triWord.quechua_word; 
+          // this.tripleWord.quechua_example = triWord.quechua_example; 
+          // this.tripleWord.quechua_phonetics = triWord.quechua_phonetics; 
+      });
+    }
   }
 
 
   onSubmitTripleWord(){
-    if(this.validateForm(this.tripleWord)){
-      this.tripleWordService.insertTriWord(this.tripleWord);
-      this.router.navigate(['/tabs/tab2'])
-    }else{
-      this.toast.show(`Complete todos los campos, la fonetica es opcional`, '5000', 'center').subscribe(
-        toast => {
-          console.log(toast);
+    
+      if(this.validateForm(this.tripleWord)){
+        if(!this.triWord_id){
+          this.tripleWordService.insertTriWord(this.tripleWord);
+          this.router.navigate(['/tabs/tab2'])
+        }else{
+          this.tripleWordService.updateTriWord(this.tripleWord);
+          this.router.navigate(['/tabs/tab2'])
         }
-      );
-    }
+      }else{
+        this.toast.show(`Complete todos los campos, la fonetica es opcional`, '5000', 'center').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
+      }
+    
   }
 
 

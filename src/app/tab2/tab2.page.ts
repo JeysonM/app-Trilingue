@@ -19,7 +19,7 @@ export class Tab2Page {
   constructor(public tripleWordService: TripleWordService,
               public router: Router,
               public navController: NavController,
-              public toast: Toast,) { }
+              public toast: Toast) { }
 
   ngOnInit() {
     this.tripleWordService.getTriWords()
@@ -38,6 +38,10 @@ export class Tab2Page {
 
   pushToDetailTriWord(word:TripleWord){
     this.navController.navigateForward(`/triple-words-detail/${word.$key}`);
+  }
+
+  onEdit(triWord: TripleWord){
+    this.navController.navigateForward(`/triple-words/${triWord.$key}`);
   }
 
   onDelete(triWord: TripleWord){
