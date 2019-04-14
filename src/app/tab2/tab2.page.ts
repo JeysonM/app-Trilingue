@@ -13,6 +13,8 @@ export class Tab2Page {
 
   
   public tripleWordList: TripleWord[] = new Array();
+  public searchQuery:string;
+
   constructor(public tripleWordService: TripleWordService,
               public router: Router,
               public navController: NavController) { }

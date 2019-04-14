@@ -30,13 +30,15 @@ import { Toast } from '@ionic-native/toast/ngx';
             AngularFirestoreModule,
             AngularFireStorageModule,
             AngularFireDatabaseModule
+            
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     TripleWordService,
-    Toast
+    Toast,
+    
   ],
   bootstrap: [AppComponent]
 })
