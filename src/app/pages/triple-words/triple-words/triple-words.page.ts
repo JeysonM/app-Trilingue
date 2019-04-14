@@ -3,6 +3,7 @@ import { TripleWord } from 'src/app/models/triple-word';
 import { TripleWordService } from 'src/app/services/triple-word.service';
 import { Router } from '@angular/router';
 import { Toast } from '@ionic-native/toast/ngx';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class TripleWordsPage implements OnInit {
   public tripleWord:TripleWord = new TripleWord();
   constructor(public tripleWordService: TripleWordService,
               public router: Router,
-              public toast: Toast) { }
+              public toast: Toast,
+              public navController: NavController) { }
 
   ngOnInit() {
     this.tripleWordService.getTriWords();
@@ -47,6 +49,10 @@ export class TripleWordsPage implements OnInit {
         resp = true
       }
       return resp;
+  }
+
+  buttonBack(){
+    this.navController.navigateForward(`/tabs/tab2`);
   }
 
 }

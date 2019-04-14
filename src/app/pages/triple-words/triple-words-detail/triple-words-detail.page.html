@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="buttonBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>triple-words-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card class="welcome-card">
+        <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
+        <ion-card-header>
+          <ion-card-subtitle><h1>Español</h1></ion-card-subtitle>
+          <ion-card-title>{{tripleWord.spanish_word}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-subtitle><h3><b>Ejemplo</b></h3></ion-card-subtitle>
+          <p>{{tripleWord.spanish_example}}</p><br>
+          <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle>
+          <p>{{tripleWord.spanish_phonetics}}</p><br>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card class="welcome-card">
+        <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
+        <ion-card-header>
+          <ion-card-subtitle><h1>Inglés</h1></ion-card-subtitle>
+          <ion-card-title>{{tripleWord.english_word}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-subtitle><h3><b>Ejemplo</b></h3></ion-card-subtitle>
+          <p>{{tripleWord.english_example}}</p><br>
+          <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle>
+          <p>{{tripleWord.english_phonetics}}</p><br>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card class="welcome-card">
+        <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
+        <ion-card-header>
+          <ion-card-subtitle><h1>Quechua</h1></ion-card-subtitle>
+          <ion-card-title>{{tripleWord.quechua_word}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-subtitle><h3><b>Ejemplo</b></h3></ion-card-subtitle>
+          <p>{{tripleWord.quechua_example}}</p><br>
+          <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle>
+          <p>{{tripleWord.quechua_phonetics}}</p><br>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

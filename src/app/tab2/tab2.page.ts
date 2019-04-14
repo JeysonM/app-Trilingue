@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TripleWordService } from '../services/triple-word.service';
 import { TripleWord } from '../models/triple-word';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -9,8 +11,11 @@ import { TripleWord } from '../models/triple-word';
 })
 export class Tab2Page {
 
+  
   public tripleWordList: TripleWord[] = new Array();
-  constructor(public tripleWordService: TripleWordService) { }
+  constructor(public tripleWordService: TripleWordService,
+              public router: Router,
+              public navController: NavController) { }
 
   ngOnInit() {
     this.tripleWordService.getTriWords()
@@ -25,6 +30,10 @@ export class Tab2Page {
       });
       
     }); 
+  }
+
+  pushToDetailTriWord(word:TripleWord){
+    this.navController.navigateForward(`/triple-words-detail/${word.$key}`);
   }
 
 }
