@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TripleWord } from 'src/app/models/triple-word';
 import { TripleWordService } from 'src/app/services/triple-word.service';
 import { Router } from '@angular/router';
+import { Toast } from '@ionic-native/toast/ngx';
+
 
 @Component({
   selector: 'app-triple-words',
@@ -12,7 +14,8 @@ export class TripleWordsPage implements OnInit {
 
   public tripleWord:TripleWord = new TripleWord();
   constructor(public tripleWordService: TripleWordService,
-              public router: Router) { }
+              public router: Router,
+              public toast: Toast) { }
 
   ngOnInit() {
     this.tripleWordService.getTriWords();
@@ -20,8 +23,30 @@ export class TripleWordsPage implements OnInit {
 
 
   onSubmitTripleWord(){
-    this.tripleWordService.insertTriWord(this.tripleWord);
-    this.router.navigate(['/tabs/tab2'])
+    if(this.validateForm(this.tripleWord)){
+      this.tripleWordService.insertTriWord(this.tripleWord);
+      this.router.navigate(['/tabs/tab2'])
+    }else{
+      this.toast.show(`Complete todos los campos, la fonetica es opcional`, '5000', 'center').subscribe(
+        toast => {
+          console.log(toast);
+        }
+      );
+    }
+  }
+
+
+  validateForm(tripleWord: TripleWord){
+    var resp = false
+    if( (/.*\S+.*/.test(tripleWord.english_word)) &&
+        (/.*\S+.*/.test(tripleWord.english_example)) &&
+        (/.*\S+.*/.test(tripleWord.spanish_word)) &&
+        (/.*\S+.*/.test(tripleWord.spanish_example)) &&
+        (/.*\S+.*/.test(tripleWord.quechua_word)) &&
+        (/.*\S+.*/.test(tripleWord.english_example))){
+        resp = true
+      }
+      return resp;
   }
 
 }

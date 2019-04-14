@@ -1,6 +1,8 @@
 {
   "name": "triApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "70dc710f"
 }

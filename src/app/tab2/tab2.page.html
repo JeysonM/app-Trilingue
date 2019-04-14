@@ -21,7 +21,7 @@
         <ion-item >
             <ion-label><h5>Español</h5></ion-label> <ion-label><h5> Inglés</h5></ion-label> <ion-label> <h5> Quechua</h5></ion-label>
         </ion-item>
-        <ion-item href="https://ionicframework.com/docs/" *ngFor="let word of tripleWordList">
+        <ion-item  *ngFor="let word of tripleWordList">
           <!-- <ion-icon slot="start" color="medium" name="book"></ion-icon> -->
           <ion-label>{{word.spanish_word}}</ion-label> <ion-label>{{word.english_word}}</ion-label> <ion-label>{{word.quechua_word}}</ion-label>
         </ion-item>
