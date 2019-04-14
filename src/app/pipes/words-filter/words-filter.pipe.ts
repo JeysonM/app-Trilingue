@@ -7,7 +7,6 @@ import { TripleWord } from 'src/app/models/triple-word';
 export class WordsFilterPipe implements PipeTransform {
 
   transform(triWords: TripleWord[], searchQuery: string): TripleWord[] {
-    console.log("Enter to pipe");
     if(!triWords || !searchQuery){
       return triWords;
     }

@@ -3,6 +3,7 @@ import { TripleWordService } from '../services/triple-word.service';
 import { TripleWord } from '../models/triple-word';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Toast } from '@ionic-native/toast/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -17,7 +18,8 @@ export class Tab2Page {
 
   constructor(public tripleWordService: TripleWordService,
               public router: Router,
-              public navController: NavController) { }
+              public navController: NavController,
+              public toast: Toast,) { }
 
   ngOnInit() {
     this.tripleWordService.getTriWords()
@@ -36,6 +38,16 @@ export class Tab2Page {
 
   pushToDetailTriWord(word:TripleWord){
     this.navController.navigateForward(`/triple-words-detail/${word.$key}`);
+  }
+
+  onDelete(triWord: TripleWord){
+    this.tripleWordService.deleteTriWord(triWord.$key);
+    this.toast.show(`Se eliminó correctamente`, '5000', 'center').subscribe(
+      toast => {
+        console.log(toast);
+      }
+    );
+    
   }
 
 }

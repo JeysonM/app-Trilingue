@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
       <ion-buttons slot="start">
         <ion-back-button (click)="buttonBack()"></ion-back-button>
       </ion-buttons>
-      <ion-title>Palabra nueva</ion-title>
+      <ion-title><h1><b>Añadir palabra</b></h1></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
     <ion-list>
         <ion-card class="welcome-card">
             <ion-card-header>
@@ -78,7 +78,10 @@
         </ion-card>
     </ion-list>
 
-      <ion-button color="primary" expand="block" (click)="onSubmitTripleWord();">Guardar</ion-button>
+    <div padding>
+        <ion-button color="primary" expand="block" (click)="onSubmitTripleWord();">Guardar</ion-button>
+    </div>
+   
 
 
 </ion-content>
