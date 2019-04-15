@@ -8,27 +8,27 @@
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
+    <ion-card class="welcome-card" (click)="goTo(colors);">
       <ion-img src="/assets/shapes.svg"></ion-img>
       <ion-card-header>
         <ion-card-title>Colores</ion-card-title>
       </ion-card-header>
     </ion-card>
 
-    <ion-card class="welcome-card">
+    <ion-card class="welcome-card" (click)="goTo(numbers);">
       <ion-img src="/assets/shapes.svg"></ion-img>
       <ion-card-header>
         <ion-card-title>Números</ion-card-title>
       </ion-card-header>
     </ion-card>
 
-    <ion-card class="welcome-card">
+    <ion-card class="welcome-card" (click)="goTo(class_objects);">
       <ion-img src="/assets/shapes.svg"></ion-img>
       <ion-card-header>
         <ion-card-title>Objetos del aula</ion-card-title>
       </ion-card-header>
     </ion-card>
-    <ion-card class="welcome-card">
+    <ion-card class="welcome-card" (click)="goTo(week_days);">
       <ion-img src="/assets/shapes.svg"></ion-img>
       <ion-card-header>
         <ion-card-title>Días de la semana</ion-card-title>

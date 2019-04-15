@@ -24,22 +24,24 @@ export class ItemService {
       english_word: item.english_word,
       quechua_word: item.quechua_word,
       imagePath: item.imagePath,
+      kind: item.kind,
       created_at: Date.now().toString(),
       updated_at: Date.now().toString()
     });
   }
 
-  updateTriWord(item: Item){
+  updateItem(item: Item){
     this.itemList.update(item.$key, {
       spanish_word: item.spanish_word,
       english_word: item.english_word,
       quechua_word: item.quechua_word,
       imagePath: item.imagePath,
+      kind: item.kind,
       updated_at: Date.now().toString()
     });
   }
 
-  deleteTriWord($key: string) {
+  deleteItem($key: string) {
     this.itemList.remove($key);
   }
 }
