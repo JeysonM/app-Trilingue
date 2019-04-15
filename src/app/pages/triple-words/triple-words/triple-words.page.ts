@@ -35,15 +35,6 @@ export class TripleWordsPage implements OnInit {
           this.tripleWord = triWord;
           this.tripleWord.$key = this.triWord_id;
           console.log(this.tripleWord);
-          // this.tripleWord.english_example = triWord.english_example; 
-          // this.tripleWord.english_phonetics = triWord.english_phonetics; 
-          // this.tripleWord.english_phonetics = triWord.english_phonetics; 
-          // this.tripleWord.spanish_word = triWord.spanish_word; 
-          // this.tripleWord.spanish_example = triWord.spanish_example; 
-          // this.tripleWord.spanish_phonetics = triWord.spanish_phonetics; 
-          // this.tripleWord.quechua_word = triWord.quechua_word; 
-          // this.tripleWord.quechua_example = triWord.quechua_example; 
-          // this.tripleWord.quechua_phonetics = triWord.quechua_phonetics; 
       });
     }
   }

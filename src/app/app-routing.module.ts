@@ -6,7 +6,9 @@ const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'triple-words/new', loadChildren: './pages/triple-words/triple-words/triple-words.module#TripleWordsPageModule' },
   { path: 'triple-words/:id', loadChildren: './pages/triple-words/triple-words/triple-words.module#TripleWordsPageModule' },
-  { path: 'triple-words-detail/:id', loadChildren: './pages/triple-words/triple-words-detail/triple-words-detail.module#TripleWordsDetailPageModule' }
+  { path: 'triple-words-detail/:id', loadChildren: './pages/triple-words/triple-words-detail/triple-words-detail.module#TripleWordsDetailPageModule' },
+  { path: 'item/new', loadChildren: './pages/item/item/item.module#ItemPageModule' },
+  { path: 'item-list', loadChildren: './pages/item/item-list/item-list.module#ItemListPageModule' }
 ];
 @NgModule({
   imports: [
