@@ -16,4 +16,20 @@
 
 <ion-content>
 
+    <ion-card class="welcome-card" *ngFor="let item of itemList">
+        <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
+        <!-- <ion-card-header>
+          <ion-card-subtitle><h1>Español</h1></ion-card-subtitle>
+          <ion-card-title>{{tripleWord.spanish_word}}</ion-card-title>
+        </ion-card-header> -->
+        <ion-card-content>
+          <ion-card-subtitle><h3><b>Castellano</b></h3></ion-card-subtitle>
+          <p>{{item.spanish_word}}</p><br>
+          <ion-card-subtitle><h3><b>Inglés</b></h3></ion-card-subtitle>
+          <p>{{item.english_word}}</p><br>
+          <ion-card-subtitle><h3><b>Quechua</b> </h3></ion-card-subtitle>
+          <p>{{item.quechua_word}}</p><br>
+        </ion-card-content>
+    </ion-card>
+
 </ion-content>
