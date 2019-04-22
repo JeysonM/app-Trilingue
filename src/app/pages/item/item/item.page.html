@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button (click)="buttonBack()"></ion-back-button>
     </ion-buttons>
-    <ion-title>item</ion-title>
+    <ion-title><h1><b>Nuevo item</b></h1></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -42,6 +42,8 @@
               <ion-input type="text" name="english_word" [(ngModel)]="item.english_word"></ion-input>
             </ion-item>
 
+           
+
             <!-- <ion-item>
               <ion-label position="floating">Ejemplo</ion-label>
               <ion-textarea name="english_example" [(ngModel)]="tripleWord.english_example" placeholder="Escriba un ejemplo..." ></ion-textarea>
@@ -64,20 +66,25 @@
                   <ion-label position="floating">Palabra</ion-label>
                   <ion-input type="text" name="quechua_word" [(ngModel)]="item.quechua_word"></ion-input>
                 </ion-item>
-          
-                <!-- <ion-item>
-                  <ion-label position="floating">Ejemplo</ion-label>
-                  <ion-textarea name="quechua_example" [(ngModel)]="tripleWord.quechua_example" placeholder="Escriba un ejemplo..." ></ion-textarea>
-                </ion-item>
-          
-                <ion-item>
-                  <ion-label position="floating">Fonética</ion-label>
-                  <ion-input type="text" name="quechua_phonetics" [(ngModel)]="tripleWord.quechua_phonetics"></ion-input>
-                </ion-item><br> -->
           </ion-card-content>
         </ion-card>
-    </ion-list>
 
+
+        <ion-card class="welcome-card">
+            <ion-item *ngIf="imagePreview">
+                <ion-img src="{{imagePreview}}"></ion-img>
+            </ion-item>
+           
+            <ion-card-content>
+            
+                  <div padding>
+                    <ion-button color="success" expand="block" (click)="selectImage();">Subir Imagen</ion-button>
+                </div>
+            </ion-card-content>
+        </ion-card>
+
+    </ion-list>
+    
     <div padding>
         <ion-button color="primary" expand="block" (click)="onSubmitItem();">Guardar</ion-button>
     </div>

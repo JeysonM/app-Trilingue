@@ -43,16 +43,31 @@ export class ItemListPage implements OnInit {
 
   setTitleToolbar(){
     if(this.destiny == "colors"){
-      this.title = "Colores"
+      this.title = "Colores";
     }
     if(this.destiny == "numbers"){
-      this.title = "Números"
+      this.title = "Números";
     }
-    if(this.destiny == "class_objects"){
-      this.title = "Objetos de la clase"
+    if(this.destiny == "family"){
+      this.title = "Familia";
     }
-    if(this.destiny == "week_days"){
-      this.title = "Días de la semana"
+    if(this.destiny == "months_days"){
+      this.title = "Días y Meses";
+    }
+    if(this.destiny == "meals"){
+      this.title = "Alimentos";
+    }
+    if(this.destiny == "objects"){
+      this.title = "Objetos";
+    }
+    if(this.destiny == "human_body"){
+      this.title = "Cuerpo humano";
+    }
+    if(this.destiny == "verbs"){
+      this.title = "Verbos";
+    }
+    if(this.destiny == "animals"){
+      this.title = "Animales";
     }
 
   }

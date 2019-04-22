@@ -8,16 +8,20 @@ import { NavController } from '@ionic/angular';
 })
 export class Tab3Page {
 
-  public colors = "colors"
-  public numbers = "numbers"
-  public class_objects = "class_objects"
-  public week_days = "week_days"
+  public colors = "colors";
+  public numbers = "numbers";
+  public family = "family";
+  public months_days = "months_days";
+  public meals = "meals";
+  public objects = "objects";
+  public human_body = "human_body"
+  public verbs = "verbs";
+  public animals = "animals";
 
   constructor(public navController: NavController){
 
   }
-
-
+  
   goTo(destiny){
     this.navController.navigateForward(`/item-list/${destiny}`);
   }

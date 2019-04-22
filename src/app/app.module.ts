@@ -18,6 +18,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { TripleWordService } from './services/triple-word.service';
 import { Toast } from '@ionic-native/toast/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +36,7 @@ import { Toast } from '@ionic-native/toast/ngx';
   providers: [
     StatusBar,
     SplashScreen,
+    ImagePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     TripleWordService,
     Toast,
