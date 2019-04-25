@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { TripleWordService } from 'src/app/services/triple-word.service';
 import { TripleWord } from 'src/app/models/triple-word';
+
+import { Media, MediaObject } from '@ionic-native/media/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 @Component({
   selector: 'app-triple-words-detail',
@@ -15,9 +18,20 @@ export class TripleWordsDetailPage implements OnInit {
   tripleWord:TripleWord = new TripleWord();
   triWordObservable: Observable<any>;
 
+  recording: boolean = false;
+  filePath: string;
+  fileNameSpanish: string;
+  fileNameEnglish: string;
+  fileNameQuechua: string;
+  audio: MediaObject;
+  audioList: any[] = [];
+
   constructor(public activatedRoute: ActivatedRoute,
               public navController: NavController,
-              public tripleWordService: TripleWordService) { }
+              public tripleWordService: TripleWordService,
+              private media: Media,
+              private file: File,
+              public platform: Platform) { }
 
   ngOnInit() {
     this.triWord_id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -25,6 +39,18 @@ export class TripleWordsDetailPage implements OnInit {
     this.triWordObservable.subscribe(triWord => {
         this.tripleWord = triWord; 
     });
+  }
+
+  playAudio(file) {
+    if (this.platform.is('ios')) {
+      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
+      this.audio = this.media.create(this.filePath);
+    } else if (this.platform.is('android')) {
+      this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + file;
+      this.audio = this.media.create(this.filePath);
+    }
+    this.audio.play();
+    this.audio.setVolume(0.8);
   }
 
   buttonBack(){

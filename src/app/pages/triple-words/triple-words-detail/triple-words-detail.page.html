@@ -20,6 +20,7 @@
           <p>{{tripleWord.spanish_example}}</p><br>
           <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle>
           <p>{{tripleWord.spanish_phonetics}}</p><br>
+          <ion-button  clear item-end large (click)="playAudio(tripleWord.spanish_phonetics)"><ion-icon name="play"></ion-icon></ion-button>
         </ion-card-content>
     </ion-card>
 
