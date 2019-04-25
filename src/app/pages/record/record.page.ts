@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { MediaCapture, CaptureVideoOptions, MediaFile } from '@ionic-native/media-capture/ngx';
+import { MediaCapture, CaptureVideoOptions, MediaFile, CaptureError } from '@ionic-native/media-capture/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Storage } from '@ionic/storage';
@@ -19,13 +19,13 @@ export class RecordPage implements OnInit {
   constructor(public navCtrl: NavController, private mediaCapture: MediaCapture, private storage: Storage, private file: File, private media: Media) {}
 
   ngOnInit() {
-    this.storage.get(MEDIA_FILES_KEY).then(res => {
-      this.mediaFiles = JSON.parse(res) || [];
-    })
+    
   }
  
   ionViewDidLoad() {
-    
+    this.storage.get(MEDIA_FILES_KEY).then(res => {
+      this.mediaFiles = JSON.parse(res) || [];
+    })
   }
  
   captureAudio() {
