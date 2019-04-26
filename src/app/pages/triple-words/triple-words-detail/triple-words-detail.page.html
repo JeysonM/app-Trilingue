@@ -12,15 +12,16 @@
     <ion-card class="welcome-card">
         <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
         <ion-card-header>
-          <ion-card-subtitle><h1>Castellano</h1></ion-card-subtitle>
+          <ion-card-subtitle ><h1>Castellano</h1></ion-card-subtitle>
           <ion-card-title>{{tripleWord.spanish_word}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <ion-card-subtitle><h3><b>Ejemplo</b></h3></ion-card-subtitle>
           <p>{{tripleWord.spanish_example}}</p><br>
-          <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle>
-          <p>{{tripleWord.spanish_phonetics}}</p><br>
-          <ion-button  clear item-end large (click)="playAudio(tripleWord.spanish_phonetics)"><ion-icon name="play"></ion-icon></ion-button>
+          <div class="ion-text-center">
+            <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle><br>
+            <ion-button  clear item-end large (click)="playAudio(tripleWord.spanish_phonetics)">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button>
+          </div> 
         </ion-card-content>
     </ion-card>
 
@@ -33,8 +34,10 @@
         <ion-card-content>
           <ion-card-subtitle><h3><b>Ejemplo</b></h3></ion-card-subtitle>
           <p>{{tripleWord.english_example}}</p><br>
-          <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle>
-          <p>{{tripleWord.english_phonetics}}</p><br>
+          <div class="ion-text-center">
+            <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle><br>
+            <ion-button  clear item-end large (click)="playAudio(tripleWord.english_phonetics)">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button>
+          </div>
         </ion-card-content>
     </ion-card>
 
@@ -47,8 +50,10 @@
         <ion-card-content>
           <ion-card-subtitle><h3><b>Ejemplo</b></h3></ion-card-subtitle>
           <p>{{tripleWord.quechua_example}}</p><br>
-          <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle>
-          <p>{{tripleWord.quechua_phonetics}}</p><br>
+          <div class="ion-text-center">
+            <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle><br>
+            <ion-button  clear item-end large (click)="playAudio(tripleWord.quechua_phonetics)">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button>
+          </div>
         </ion-card-content>
     </ion-card>
 

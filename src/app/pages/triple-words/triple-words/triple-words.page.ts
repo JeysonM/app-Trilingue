@@ -61,10 +61,14 @@ export class TripleWordsPage implements OnInit {
       if(this.validateForm(this.tripleWord)){
         if(!this.triWord_id){
           this.tripleWord.spanish_phonetics = this.fileNameSpanish;
+          this.tripleWord.english_phonetics = this.fileNameEnglish;
+          this.tripleWord.quechua_phonetics = this.fileNameQuechua;
           this.tripleWordService.insertTriWord(this.tripleWord);
           this.router.navigate(['/tabs/tab2'])
         }else{
           this.tripleWord.spanish_phonetics = this.fileNameSpanish;
+          this.tripleWord.english_phonetics = this.fileNameEnglish;
+          this.tripleWord.quechua_phonetics = this.fileNameQuechua;
           this.tripleWordService.updateTriWord(this.tripleWord);
           this.router.navigate(['/tabs/tab2'])
         }
@@ -124,6 +128,52 @@ export class TripleWordsPage implements OnInit {
   stopRecordSpanish() {
     this.audio.stopRecord();
     let data = { filename: this.fileNameSpanish };
+    this.audioList.push(data);
+    localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+    this.recording = false;
+    this.getAudioList();
+  }
+
+  startRecordEnglish() {
+    if (this.platform.is('ios')) {
+      this.fileNameEnglish = this.tripleWord.english_word + new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
+      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileNameEnglish;
+      this.audio = this.media.create(this.filePath);
+    } else if (this.platform.is('android')) {
+      this.fileNameEnglish = this.tripleWord.english_word + new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
+      this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.fileNameEnglish;
+      this.audio = this.media.create(this.filePath);
+    }
+    this.audio.startRecord();
+    this.recording = true;
+  }
+
+  stopRecordEnglish() {
+    this.audio.stopRecord();
+    let data = { filename: this.fileNameEnglish };
+    this.audioList.push(data);
+    localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+    this.recording = false;
+    this.getAudioList();
+  }
+
+  startRecordQuechua() {
+    if (this.platform.is('ios')) {
+      this.fileNameQuechua = this.tripleWord.quechua_word + new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
+      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileNameQuechua;
+      this.audio = this.media.create(this.filePath);
+    } else if (this.platform.is('android')) {
+      this.fileNameQuechua = this.tripleWord.quechua_word + new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
+      this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.fileNameQuechua;
+      this.audio = this.media.create(this.filePath);
+    }
+    this.audio.startRecord();
+    this.recording = true;
+  }
+
+  stopRecordQuechua() {
+    this.audio.stopRecord();
+    let data = { filename: this.fileNameQuechua };
     this.audioList.push(data);
     localStorage.setItem("audiolist", JSON.stringify(this.audioList));
     this.recording = false;
