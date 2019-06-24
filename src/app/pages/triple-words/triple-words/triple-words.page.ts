@@ -57,7 +57,6 @@ export class TripleWordsPage implements OnInit {
 
 
   onSubmitTripleWord(){
-    
       if(this.validateForm(this.tripleWord)){
         if(!this.triWord_id){
           this.tripleWord.spanish_phonetics = this.fileNameSpanish;
@@ -66,9 +65,16 @@ export class TripleWordsPage implements OnInit {
           this.tripleWordService.insertTriWord(this.tripleWord);
           this.router.navigate(['/tabs/tab2'])
         }else{
-          this.tripleWord.spanish_phonetics = this.fileNameSpanish;
-          this.tripleWord.english_phonetics = this.fileNameEnglish;
-          this.tripleWord.quechua_phonetics = this.fileNameQuechua;
+          if(this.fileNameSpanish != undefined){
+            this.tripleWord.spanish_phonetics = this.fileNameSpanish;
+          }
+          if(this.fileNameEnglish != undefined){
+            this.tripleWord.english_phonetics = this.fileNameEnglish;
+          }
+          if(this.fileNameQuechua != undefined){
+            this.tripleWord.quechua_phonetics = this.fileNameQuechua;
+          }
+          console.log(this.tripleWord)
           this.tripleWordService.updateTriWord(this.tripleWord);
           this.router.navigate(['/tabs/tab2'])
         }
