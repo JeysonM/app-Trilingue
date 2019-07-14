@@ -20,7 +20,9 @@
           <p>{{tripleWord.spanish_example}}</p><br>
           <div class="ion-text-center">
             <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle><br>
-            <ion-button  clear item-end large (click)="playAudio(tripleWord.spanish_phonetics)">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button>
+            <!-- <ion-button  clear item-end large (click)="playAudio(tripleWord.spanish_phonetics)">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button> -->
+            <ion-button  clear item-end large (click)="playAudioSpanish(tripleWord);">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button>
+            <ion-button  clear item-end large (click)="stopAudioSpanish();">Detener&nbsp;&nbsp;<ion-icon name="square"></ion-icon></ion-button>
           </div> 
         </ion-card-content>
     </ion-card>
@@ -36,7 +38,9 @@
           <p>{{tripleWord.english_example}}</p><br>
           <div class="ion-text-center">
             <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle><br>
-            <ion-button  clear item-end large (click)="playAudio(tripleWord.english_phonetics)">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button>
+            <!-- <ion-button  clear item-end large (click)="playAudio(tripleWord.english_phonetics)">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button> -->
+            <ion-button  clear item-end large (click)="playAudioEnglish(tripleWord);">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button>
+            <ion-button  clear item-end large (click)="stopAudioEnglish();">Detener&nbsp;&nbsp;<ion-icon name="square"></ion-icon></ion-button>
           </div>
         </ion-card-content>
     </ion-card>
@@ -52,7 +56,9 @@
           <p>{{tripleWord.quechua_example}}</p><br>
           <div class="ion-text-center">
             <ion-card-subtitle><h3><b>Fonética</b> </h3></ion-card-subtitle><br>
-            <ion-button  clear item-end large (click)="playAudio(tripleWord.quechua_phonetics)">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button>
+            <!-- <ion-button  clear item-end large (click)="playAudio(tripleWord.quechua_phonetics)">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button> -->
+            <ion-button  clear item-end large (click)="playAudioQuechua(tripleWord);">Reproducir&nbsp;&nbsp;<ion-icon name="play"></ion-icon></ion-button>
+            <ion-button  clear item-end large (click)="stopAudioQuechua();">Detener&nbsp;&nbsp;<ion-icon name="square"></ion-icon></ion-button>
           </div>
         </ion-card-content>
     </ion-card>

@@ -25,6 +25,9 @@ export class TripleWordsDetailPage implements OnInit {
   fileNameQuechua: string;
   audio: MediaObject;
   audioList: any[] = [];
+  audioSpanish = new Audio();  
+  audioEnglish = new Audio();
+  audioQuechua = new Audio();
 
   constructor(public activatedRoute: ActivatedRoute,
               public navController: NavController,
@@ -55,6 +58,36 @@ export class TripleWordsDetailPage implements OnInit {
 
   buttonBack(){
     this.navController.navigateForward(`/tabs/tab2`);
+  }
+
+  playAudioSpanish(tripleWord: TripleWord){
+    this.audioSpanish.src = tripleWord.spanish_phonetics;
+    this.audioSpanish.load();
+    this.audioSpanish.play();
+  }
+  
+  stopAudioSpanish(){
+    this.audioSpanish.pause()
+  }
+
+  playAudioEnglish(tripleWord: TripleWord){
+    this.audioEnglish.src = tripleWord.english_phonetics;
+    this.audioEnglish.load();
+    this.audioEnglish.play();
+  }
+  
+  stopAudioEnglish(){
+    this.audioEnglish.pause()
+  }
+
+  playAudioQuechua(tripleWord: TripleWord){
+    this.audioQuechua.src = tripleWord.quechua_phonetics;
+    this.audioQuechua.load();
+    this.audioQuechua.play();
+  }
+  
+  stopAudioQuechua(){
+    this.audioQuechua.pause()
   }
 
   
