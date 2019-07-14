@@ -20,11 +20,18 @@ import { TripleWordService } from './services/triple-word.service';
 import { Toast } from '@ionic-native/toast/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
+import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture/ngx';
+import { Media, MediaObject } from '@ionic-native/media/ngx';
+import { File } from '@ionic-native/file/ngx';
+
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, 
             IonicModule.forRoot(), 
+            IonicStorageModule.forRoot(),
             AppRoutingModule,
             AngularFireModule.initializeApp(environment.firebase),
             AngularFireAuthModule,
@@ -37,6 +44,9 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
     StatusBar,
     SplashScreen,
     ImagePicker,
+    MediaCapture,
+    Media,
+    File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     TripleWordService,
     Toast,
